@@ -2,11 +2,7 @@ import { POKEAPI_TYPE_TO_COLOR } from "../utils/pokemonColorByType";
 
 const Card = ({ sprite, name, types }: any) => {
   return (
-    <div
-      className={`
-				w-4/6 rounded overflow-hidden shadow-xl bg-gray-100 cursor-pointer
-			`}
-    >
+    <div className="w-4/6 rounded overflow-hidden shadow-xl bg-gray-100 cursor-pointer">
       <img
         src={sprite}
         alt={name}

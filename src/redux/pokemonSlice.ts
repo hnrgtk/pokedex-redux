@@ -25,11 +25,19 @@ export const slice = createSlice({
   initialState: {
     pokemons: [],
     nextUrl: "",
+    pokemon: [],
   },
-  reducers: {},
+  reducers: {
+    setPokemon(state, { payload }) {
+      return {
+        ...state,
+        pokemon: payload,
+      };
+    },
+  },
   extraReducers: {
     [fetchPokemons.fulfilled.type]: (state: any, action: any) => {
-      state.pokemons.push(...action.payload.pokemons);
+      state.pokemons = action.payload.pokemons;
       state.nextUrl = action.payload.next;
     },
     [fetchNextPokemons.fulfilled.type]: (state: any, action: any) => {
@@ -38,5 +46,7 @@ export const slice = createSlice({
     },
   },
 });
+
+export const { setPokemon } = slice.actions;
 
 export default slice.reducer;
