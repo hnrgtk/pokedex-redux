@@ -14,16 +14,17 @@ const App = () => {
 
   return (
     <div className="w-full h-full px-4">
-      <div className="flex justify-center">
+      <div className="flex justify-center my-10">
         <SearchBar />
       </div>
-      <div className="grid grid-cols-8 gap-5 mb-10">
+      <div className="grid grid-cols-4 gap-10 mb-10">
         {pokemons &&
           pokemons?.map((poke: any) => (
             <div key={poke.id} className="flex justify-center">
               <Card
-                pokemonSprite={poke.sprites.front_default}
-                pokemonName={poke.name}
+                name={poke.name}
+                sprite={poke.sprites.front_default}
+                types={poke.types.map((t: any) => t.type.name)}
               />
             </div>
           ))}
