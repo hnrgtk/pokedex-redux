@@ -1,30 +1,27 @@
-import { useEffect, useState } from "react";
-import { getPokemons } from "./api/queries/getPokemons";
+import { useEffect } from "react";
 import Card from "./components/Card";
 import SearchBar from "./components/SearchBar";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchNextPokemons, fetchPokemons } from "./redux/pokemonSlice";
 
 const App = () => {
-  const [pokemons, setPokemons] = useState<any>([]);
+  const dispatch = useDispatch();
+  const { pokemons } = useSelector((state: any) => state.pokemon);
 
   useEffect(() => {
-    (async function () {
-      const { pokemons } = await getPokemons();
-      setPokemons(pokemons);
-    })();
+    dispatch(fetchPokemons());
   }, []);
-  console.log(pokemons[0]?.sprites);
 
   return (
     <div className="w-full h-full px-4">
       <div className="flex justify-center">
         <SearchBar />
       </div>
-      <div className="grid grid-cols-10 gap-5 mb-10">
+      <div className="grid grid-cols-8 gap-5 mb-10">
         {pokemons &&
           pokemons?.map((poke: any) => (
-            <div className="flex justify-center">
+            <div key={poke.id} className="flex justify-center">
               <Card
-                key={poke.id}
                 pokemonSprite={poke.sprites.front_default}
                 pokemonName={poke.name}
               />
@@ -32,7 +29,10 @@ const App = () => {
           ))}
       </div>
       <div className="flex justify-center mb-10">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onClick={() => dispatch(fetchNextPokemons())}
+        >
           CARREGAR MAIS
         </button>
       </div>
