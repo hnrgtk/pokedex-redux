@@ -25,13 +25,29 @@ export const slice = createSlice({
   initialState: {
     pokemons: [],
     nextUrl: "",
-    pokemon: [],
+    pokemon: {},
   },
   reducers: {
     setPokemon(state, { payload }) {
+      let moves = [];
+      for (let i = 0; i < 4; i++) {
+        moves.push(payload.moves[i].move.name);
+      }
+      const pokemon = {
+        name: payload.name,
+        stats: payload.stats.map((s: any) => ({
+          name: s.stat.name,
+          value: s.base_stat,
+        })),
+        height: payload.height,
+        weight: payload.weight,
+        sprite: payload.sprites.front_default,
+        xp: payload.base_experience,
+				moves,
+      };
       return {
         ...state,
-        pokemon: payload,
+        pokemon,
       };
     },
   },
