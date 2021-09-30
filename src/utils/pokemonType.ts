@@ -1,4 +1,4 @@
-export const POKEAPI_TYPES = [
+export const POKEAPI_TYPES: Array<string> = [
   "normal",
   "fighting",
   "flying",

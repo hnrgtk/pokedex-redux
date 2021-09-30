@@ -14,10 +14,12 @@ export const fetchPokemons = createAsyncThunk(
 
 export const fetchNextPokemons = createAsyncThunk(
   "pokemon/getNext20",
-  async (arg, { getState }) => {
+  async (arg, { getState, dispatch }) => {
+    dispatch(setLoading(true));
     const state: any = getState();
     const nextUrl = String(state.pokemon.nextUrl).split("?")[1];
     const data = await getPokemons(nextUrl + "/");
+    dispatch(setLoading(false));
     return data;
   }
 );
@@ -43,9 +45,11 @@ interface SliceState {
   pokemon: Pokemon;
   pokemons: Pokemon[];
   nextUrl: string;
+  isLoading: boolean;
 }
 
 const initialState = {
+  isLoading: false,
   nextUrl: "",
   pokemons: [],
   pokemon: {
@@ -71,6 +75,9 @@ export const slice = createSlice({
   name: "pokemon",
   initialState,
   reducers: {
+    setLoading(state, action: PayloadAction<any>) {
+      return { ...state, isLoading: action.payload };
+    },
     setPokemon(state, action: PayloadAction<any>) {
       let moves = [];
       for (let i = 0; i < 4; i++) {
@@ -112,6 +119,6 @@ export const slice = createSlice({
   },
 });
 
-export const { setPokemon } = slice.actions;
+export const { setPokemon, setLoading } = slice.actions;
 
 export default slice.reducer;

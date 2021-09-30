@@ -12,11 +12,12 @@ import {
 import { useHistory } from "react-router";
 import { Pokemon } from "../types";
 import { AppDispatch, RootState } from "../redux/store";
+import { ClipLoader } from "react-spinners";
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [search, setSearch] = useState<string>("");
-  const { nextUrl, pokemons } = useSelector(
+  const { nextUrl, pokemons, isLoading } = useSelector(
     (state: RootState) => state.pokemon
   );
   const { push } = useHistory();
@@ -60,7 +61,11 @@ const Home = () => {
             className="load-more-pokemons"
             onClick={() => dispatch(fetchNextPokemons())}
           >
-            LOAD MORE POKEMONS
+            {isLoading ? (
+              <ClipLoader color="#fff" size={26} />
+            ) : (
+              <p>LOAD MORE POKEMONS</p>
+            )}
           </button>
         </div>
       )}
