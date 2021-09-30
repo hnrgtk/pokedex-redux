@@ -6,12 +6,20 @@ import BarChart from "../components/BarChart";
 import { POKEAPI_TYPE_TO_COLOR } from "../utils/pokemonColorByType";
 import { fetchPokemonByName } from "../redux/pokemonSlice";
 import { RootState } from "../redux/store";
+import { headTitle } from "../utils/headTitle";
 
 const Detail = () => {
   const { pathname } = useLocation();
   const { pokemon } = useSelector((state: RootState) => state.pokemon);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const title = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+    headTitle({
+      title,
+    });
+  }, [pokemon]);
 
   useEffect(() => {
     if (!pokemon.name) {

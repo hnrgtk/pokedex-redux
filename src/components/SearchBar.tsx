@@ -13,7 +13,7 @@ const SearchBar = ({ handleSearch, search, setSearch }: SearchBarProps) => {
           value={search}
           onChange={(event) => setSearch(event.target.value)}
           className="px-4 py-2 w-64 md:w-80"
-          placeholder="Buscar por pokemons..."
+          placeholder="Search for pokemon name..."
         />
         <button
           onClick={handleSearch}
