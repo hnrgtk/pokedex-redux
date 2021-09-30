@@ -41,7 +41,7 @@ export const fetchSearchPokemonByName = createAsyncThunk(
 
 interface SliceState {
   pokemon: Pokemon;
-  pokemons: any[];
+  pokemons: Pokemon[];
   nextUrl: string;
 }
 
