@@ -13,7 +13,6 @@ const Detail = () => {
 
   const dispatch = useDispatch();
 
-  // Efeito para recuperar dados quando a página é recarregada.
   useEffect(() => {
     if (!pokemon.name) {
       const pokemonName = pathname.split("/")[2];

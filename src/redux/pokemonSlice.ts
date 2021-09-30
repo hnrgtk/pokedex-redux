@@ -27,6 +27,7 @@ export const fetchPokemonByName = createAsyncThunk(
   async (name: string, { dispatch }) => {
     const data = await getPokemonByName(name);
     dispatch(setPokemon(data));
+    return data;
   }
 );
 
