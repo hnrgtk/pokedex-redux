@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import Card from "../components/Card";
 import SearchBar from "../components/SearchBar";
@@ -24,7 +25,7 @@ const Home = () => {
       <div className="flex justify-center my-10">
         <SearchBar />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 mb-10">
+      <div className="pokemon-grid-list">
         {pokemons &&
           pokemons?.map((poke: any) => (
             <div
@@ -45,10 +46,10 @@ const Home = () => {
       </div>
       <div className="flex justify-center mb-10">
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="load-more-pokemons"
           onClick={() => dispatch(fetchNextPokemons())}
         >
-          CARREGAR MAIS
+          LOAD MORE POKEMONS
         </button>
       </div>
     </div>

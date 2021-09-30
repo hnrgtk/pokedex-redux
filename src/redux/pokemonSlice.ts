@@ -34,16 +34,16 @@ export const slice = createSlice({
         moves.push(payload.moves[i].move.name);
       }
       const pokemon = {
+				id: payload.id,
         name: payload.name,
-        stats: payload.stats.map((s: any) => ({
-          name: s.stat.name,
-          value: s.base_stat,
-        })),
+        stats: payload.stats.map((s: any) => s.base_stat),
         height: payload.height,
         weight: payload.weight,
         sprite: payload.sprites.front_default,
         xp: payload.base_experience,
-				moves,
+        moves,
+        speciesUrl: payload.species.url,
+        types: payload.types.map((t: any) => t.type.name),
       };
       return {
         ...state,
