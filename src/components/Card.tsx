@@ -1,4 +1,4 @@
-import { POKEAPI_TYPE_TO_COLOR } from "../utils/pokemonColorByType";
+import {  POKEAPI_TYPE_TO_COLOR } from "../utils/pokemonColorByType";
 
 type CardProps = {
   sprite: string;
@@ -31,14 +31,13 @@ const Card = ({ sprite, name, types }: CardProps) => {
           </p>
         </div>
         <div className="flex justify-center space-x-2">
-          {types.map((type: string) => (
-            <span
-              key={type}
-              className={`type-pill bg-${POKEAPI_TYPE_TO_COLOR[type]}`}
-            >
-              {type}
-            </span>
-          ))}
+          {types.map((type: string) => {
+            return (
+              <span key={type} className={`type-pill bg-${POKEAPI_TYPE_TO_COLOR[type]}`}>
+                {type}
+              </span>
+            );
+          })}
         </div>
       </div>
     </div>

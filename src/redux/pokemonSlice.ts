@@ -34,7 +34,7 @@ export const slice = createSlice({
         moves.push(payload.moves[i].move.name);
       }
       const pokemon = {
-				id: payload.id,
+        id: payload.id,
         name: payload.name,
         stats: payload.stats.map((s: any) => s.base_stat),
         height: payload.height,

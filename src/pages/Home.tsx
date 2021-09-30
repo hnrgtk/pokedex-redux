@@ -13,10 +13,9 @@ import { Pokemon } from "../types";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { nextUrl, pokemons } = useSelector((state: any) => state);
+  const { nextUrl, pokemons } = useSelector((state: any) => state.pokemon);
 
   const { push } = useHistory();
-
   useEffect(() => {
     if (nextUrl) return;
     dispatch(fetchPokemons());
