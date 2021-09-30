@@ -31,6 +31,14 @@ export const fetchPokemonByName = createAsyncThunk(
   }
 );
 
+export const fetchSearchPokemonByName = createAsyncThunk(
+  "pokemon/searchPokemonByName",
+  async (name: string) => {
+    const data = await getPokemonByName(name);
+    return data;
+  }
+);
+
 interface SliceState {
   pokemon: Pokemon;
   pokemons: any[];
@@ -97,6 +105,9 @@ export const slice = createSlice({
     [fetchNextPokemons.fulfilled.type]: (state: any, action: any) => {
       state.pokemons.push(...action.payload.pokemons);
       state.nextUrl = action.payload.next;
+    },
+    [fetchSearchPokemonByName.fulfilled.type]: (state: any, action: any) => {
+      state.pokemons = [action.payload];
     },
   },
 });
