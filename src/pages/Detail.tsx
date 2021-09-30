@@ -21,19 +21,14 @@ const Detail = () => {
   }, [pokemon]);
 
   return (
-    <div className="px-2 md:px-16 lg:px-72 xl:px-96 min-h-screen bg-gray-100">
+    <div className="px-2 md:px-16 lg:px-72 xl:px-96 min-h-screen bg-gray-100 w-full">
       <div className="flex justify-center space-x-2 mb-10 py-8">
         <h1 className="font-bold text-4xl capitalize">{pokemon.name}</h1>
         <p className="text-4xl text-gray-500">#{pokemon.id}</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 mb-10">
-        <div
-          className="flex justify-center bg-gray-50 rounded-2xl"
-          style={{
-            width: "420px",
-          }}
-        >
-          <img src={pokemon.sprite} alt={pokemon.name} width="100%" />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+        <div className="flex justify-center bg-gray-50 rounded-3xl">
+          <img src={pokemon.sprite} alt={pokemon.name} width="80%" />
         </div>
         <div>
           <p className="text-lg mb-12">{pokemon.flavorText}</p>
@@ -56,27 +51,29 @@ const Detail = () => {
               ))}
             </div>
           </div>
-          <p className="text-xl mb-4">Type</p>
-          <div className="flex space-x-4 mb-2">
-            {pokemon?.types?.map((type: string) => (
-              <span
-                key={type}
-                className={`type-pill-detail bg-${POKEAPI_TYPE_TO_COLOR[type]}`}
-              >
-                {type}
-              </span>
-            ))}
-          </div>
-          <p className="text-xl mb-4">Weakness</p>
-          <div className="flex space-x-4 mb-2">
-            {pokemon?.weakness?.map((weak: string) => (
-              <span
-                key={weak}
-                className={`type-pill-detail bg-${POKEAPI_TYPE_TO_COLOR[weak]}`}
-              >
-                {weak}
-              </span>
-            ))}
+          <div className="flex flex-col">
+            <p className="text-xl mb-4">Type</p>
+            <div className="flex space-x-4 mb-4">
+              {pokemon?.types?.map((type: string) => (
+                <span
+                  key={type}
+                  className={`type-pill-detail bg-${POKEAPI_TYPE_TO_COLOR[type]}`}
+                >
+                  {type}
+                </span>
+              ))}
+            </div>
+            <p className="text-xl mb-4">Weakness</p>
+            <div className="flex flex-wrap mb-4">
+              {pokemon?.weakness?.map((weak: string) => (
+                <span
+                  key={weak}
+                  className={`type-pill-detail mr-4 mb-4 bg-${POKEAPI_TYPE_TO_COLOR[weak]}`}
+                >
+                  {weak}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
