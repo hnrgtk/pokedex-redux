@@ -10,20 +10,23 @@ import {
 } from "../redux/pokemonSlice";
 import { useHistory } from "react-router";
 import { Pokemon } from "../types";
+import { AppDispatch, RootState } from "../redux/store";
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const { nextUrl, pokemons } = useSelector((state: any) => state.pokemon);
-
+  const dispatch = useDispatch<AppDispatch>();
+  const { nextUrl, pokemons } = useSelector(
+    (state: RootState) => state.pokemon
+  );
   const { push } = useHistory();
+
   useEffect(() => {
     if (nextUrl) return;
     dispatch(fetchPokemons());
   }, []);
 
   return (
-    <div className="w-full h-full px-4">
-      <div className="flex justify-center my-10">
+    <div className="w-full min-h-screen bg-gray-100 px-4">
+      <div className="flex justify-center py-8">
         <SearchBar />
       </div>
       <div className="pokemon-grid-list">

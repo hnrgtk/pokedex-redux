@@ -16,9 +16,13 @@ export type Pokemon = {
   height: number;
   weight: number;
   sprite: string;
-  sprites: any;
+  sprites: {
+    front_default: string;
+  };
   xp: number;
   moves: Array<string>;
   speciesUrl: string;
   types: Array<string>;
+  flavorText: string;
+  weakness: Array<any>;
 };
