@@ -57,8 +57,8 @@ const Detail = () => {
               ))}
             </div>
           </div>
-          <p className="text-xl mb-6">Type</p>
-          <div className="flex space-x-4">
+          <p className="text-xl mb-4">Type</p>
+          <div className="flex space-x-4 mb-2">
             {pokemon?.types?.map((type: string) => (
               <span
                 key={type}
@@ -68,17 +68,17 @@ const Detail = () => {
               </span>
             ))}
           </div>
-          <p className="text-xl mb-6">Weakness</p>
-          {/* <div className="flex space-x-4">
-            {pokemon?.weakness?.map((type: string) => (
+          <p className="text-xl mb-4">Weakness</p>
+          <div className="flex space-x-4 mb-2">
+            {pokemon?.weakness?.map((weak: string) => (
               <span
-                key={type}
-                className={`type-pill-detail bg-${POKEAPI_TYPE_TO_COLOR[type]}`}
+                key={weak}
+                className={`type-pill-detail bg-${POKEAPI_TYPE_TO_COLOR[weak]}`}
               >
-                {type}
+                {weak}
               </span>
             ))}
-          </div> */}
+          </div>
         </div>
       </div>
       <div className="block bg-gray-50 rounded-2xl p-4">
