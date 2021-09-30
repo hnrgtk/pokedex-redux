@@ -6,10 +6,7 @@ const Card = ({ sprite, name, types }: any) => {
       className={`
 				w-96 rounded shadow-lg
 				bg-gray-100 cursor-pointer
-				flex border border-${
-          // @ts-ignore
-          POKEAPI_TYPE_TO_COLOR[types[0]]
-        }
+				flex border border-${POKEAPI_TYPE_TO_COLOR[types[0]]}
 				transition duration-500 ease-in-out
 				hover:shadow-2xl
 			`}
@@ -31,10 +28,7 @@ const Card = ({ sprite, name, types }: any) => {
           {types.map((type: string) => (
             <span
               key={type}
-              className={`type-pill bg-${
-                // @ts-ignore
-                POKEAPI_TYPE_TO_COLOR[type]
-              }`}
+              className={`type-pill bg-${POKEAPI_TYPE_TO_COLOR[type]}`}
             >
               {type}
             </span>

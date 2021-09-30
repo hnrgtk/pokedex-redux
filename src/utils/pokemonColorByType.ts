@@ -1,4 +1,4 @@
-export const POKEAPI_TYPE_TO_COLOR = {
+export const POKEAPI_TYPE_TO_COLOR: Record<string, string> = {
   bug: "green-400",
   dark: "gray-800",
   dragon: "purple-800",

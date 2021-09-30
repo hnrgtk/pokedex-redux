@@ -40,7 +40,7 @@ const Detail = () => {
     <div className="px-2 md:px-16 lg:px-72 xl:px-96  mt-12">
       <div className="flex justify-center space-x-2 mb-10">
         <h1 className="font-bold text-4xl capitalize">{pokemon.name}</h1>
-				<p className="text-4xl text-gray-500">#{pokemon.id}</p>
+        <p className="text-4xl text-gray-500">#{pokemon.id}</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 mb-10">
         <div
@@ -75,10 +75,7 @@ const Detail = () => {
             {pokemon?.types?.map((type: string) => (
               <span
                 key={type}
-                className={`type-pill-detail bg-${
-                  // @ts-ignore
-                  POKEAPI_TYPE_TO_COLOR[type]
-                }`}
+                className={`type-pill-detail bg-${POKEAPI_TYPE_TO_COLOR[type]}`}
               >
                 {type}
               </span>
@@ -87,7 +84,7 @@ const Detail = () => {
         </div>
       </div>
       <div className="block bg-gray-100 rounded-2xl p-4 mb-24">
-				<p className="text-xl mb-6">Stats</p>
+        <p className="text-xl mb-6">Stats</p>
         <BarChart value={baseStats} />
       </div>
     </div>
