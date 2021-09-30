@@ -43,7 +43,7 @@ export const slice = createSlice({
         xp: payload.base_experience,
         moves,
         speciesUrl: payload.species.url,
-        types: payload.types.map((t: any) => t.type.name),
+        types: payload?.types?.map((t: any) => t?.type?.name),
       };
       return {
         ...state,

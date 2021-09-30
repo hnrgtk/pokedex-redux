@@ -8,3 +8,17 @@ export interface ResultsEntity {
   name: string;
   url: string;
 }
+
+export type Pokemon = {
+  id: number;
+  name: string;
+  stats: Array<number>;
+  height: number;
+  weight: number;
+  sprite: string;
+  sprites: any;
+  xp: number;
+  moves: Array<string>;
+  speciesUrl: string;
+  types: Array<string>;
+};

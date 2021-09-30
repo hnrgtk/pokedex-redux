@@ -1,8 +1,10 @@
 import ReactECharts from "echarts-for-react";
 
-const BarChart = ({ value }: any) => {
-  console.log(value);
+type BarChartProps = {
+  data: Array<number>;
+};
 
+const BarChart = ({ data }: BarChartProps) => {
   const options = {
     xAxis: {
       type: "category",
@@ -20,7 +22,7 @@ const BarChart = ({ value }: any) => {
     },
     series: [
       {
-        data: value,
+        data,
         type: "bar",
         tooltip: {
           position: ["50%", "50%"],
@@ -30,41 +32,8 @@ const BarChart = ({ value }: any) => {
         },
       },
     ],
-    // radar: {
-    //   indicator: [
-    //     { name: "HP", max: 250 },
-    //     { name: "ATTACK", max: 134 },
-    //     { name: "DEFENSE", max: 180 },
-    //     { name: "SPECIAL ATTACK", max: 154 },
-    //     { name: "SPECIAL DEFENSE", max: 100 },
-    //     { name: "SPEED", max: 140 },
-    //   ],
-    // },
-    // series: [
-    //   {
-    //     name: "Pokemon Stats",
-    //     type: "radar",
-    // 		symbol: 'circle',
-    //     data: [
-    //       {
-    //         value,
-    //         name: "Pokemon Stats",
-    //       },
-    //     ],
-    // 		tooltip: {
-    // 			position: ['50%', '50%']
-    // 		},
-    // 		label: {
-    // 			show: true,
-    // 		}
-    //   },
-    // ],
   };
-  return (
-    <ReactECharts
-      option={options}
-    />
-  );
+  return <ReactECharts option={options} />;
 };
 
 export default BarChart;

@@ -10,6 +10,8 @@ import { setPokemon } from "../redux/pokemonSlice";
 const Detail = () => {
   const { pathname } = useLocation();
   const { pokemon } = useSelector((state: any) => state.pokemon);
+  console.log(pokemon);
+
   const dispatch = useDispatch();
   const [flavorText, setFlavorText] = useState("");
   const [baseStats, setBaseStats] = useState<any>([]);
@@ -24,7 +26,6 @@ const Detail = () => {
       })();
     }
   }, []);
-
   // Efeito para pegar dados aninhados com outra requisição.
   useEffect(() => {
     if (pokemon.name) {
@@ -85,7 +86,7 @@ const Detail = () => {
       </div>
       <div className="block bg-gray-100 rounded-2xl p-4 mb-24">
         <p className="text-xl mb-6">Stats</p>
-        <BarChart value={baseStats} />
+        <BarChart data={baseStats} />
       </div>
     </div>
   );

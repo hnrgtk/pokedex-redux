@@ -9,10 +9,12 @@ import {
   setPokemon,
 } from "../redux/pokemonSlice";
 import { useHistory } from "react-router";
+import { Pokemon } from "../types";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { pokemons, nextUrl } = useSelector((state: any) => state.pokemon);
+  const { nextUrl, pokemons } = useSelector((state: any) => state);
+
   const { push } = useHistory();
 
   useEffect(() => {
@@ -27,7 +29,7 @@ const Home = () => {
       </div>
       <div className="pokemon-grid-list">
         {pokemons &&
-          pokemons?.map((poke: any) => (
+          pokemons?.map((poke: Pokemon) => (
             <div
               key={poke.id}
               className="flex justify-center"
