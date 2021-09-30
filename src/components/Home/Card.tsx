@@ -1,4 +1,4 @@
-import {  POKEAPI_TYPE_TO_COLOR } from "../utils/pokemonColorByType";
+import {  POKEAPI_TYPE_TO_COLOR } from "../../utils/pokemonColorByType";
 
 type CardProps = {
   sprite: string;
