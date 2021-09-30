@@ -1,5 +1,3 @@
-import { POKEAPI_TYPE_TO_COLOR } from "../utils/pokemonColorByType";
-
 const Card = ({ sprite, name, types }: any) => {
   const POKEAPI_TYPE_TO_COLOR: Record<string, string> = {
     bug: "green-400",
