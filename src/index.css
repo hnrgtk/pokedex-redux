@@ -17,11 +17,11 @@
 }
 
 .white-p {
-	@apply text-lg text-gray-500 font-bold;
+	@apply text-xl text-gray-500 font-bold;
 }
 
 .black-p {
-	@apply text-xl text-gray-900 font-bold;
+	@apply text-lg text-gray-900 font-bold;
 }
 
 .type-pill {
