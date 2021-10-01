@@ -29,5 +29,5 @@
 }
 
 .type-pill-detail {
-	@apply text-white uppercase rounded-md text-base px-8 py-2;
+	@apply text-white uppercase rounded-md text-base px-8 py-2 font-bold;
 }
