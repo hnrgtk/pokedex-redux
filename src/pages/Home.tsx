@@ -31,7 +31,7 @@ const Home = () => {
       </div>
       <PokemonList {...{ pokemons }} />
       {pokemons.length > 1 && (
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center pb-12">
           <LoadMoreButton {...{ isLoading }} />
         </div>
       )}
