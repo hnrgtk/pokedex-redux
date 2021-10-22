@@ -89,7 +89,7 @@ export const slice = createSlice({
         stats: action.payload.stats.map((s: any) => s.base_stat),
         height: action.payload.height,
         weight: action.payload.weight,
-        sprite: action.payload.sprites.front_default,
+        sprite: action.payload.sprites.other["official-artwork"].front_default, 
         xp: action.payload.base_experience,
         moves,
         speciesUrl: action.payload.species.url,
