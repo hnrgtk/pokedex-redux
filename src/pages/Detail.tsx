@@ -22,6 +22,7 @@ const Detail = () => {
     headTitle({
       title,
     });
+		window.scrollTo(0, 0);
   }, [pokemon]);
 
   useEffect(() => {
